@@ -27,8 +27,8 @@ end
 
 function love.mousepressed(x, y, button)
     for i = 1, upgrade.nb do
-        if x >= upgrade.x[i] and x <= upgrade.x[i] + upgrade.width[i]*upgrade.scaleX[i] and
-        y >= upgrade.y[i] and y <= upgrade.y[i] + upgrade.height[i]*upgrade.scaleY[i] then
+        if x >= upgrade.x[i] and x <= upgrade.x[i] + upgrade.width*upgrade.scaleX[i] and
+        y >= upgrade.y[i] and y <= upgrade.y[i] + upgrade.height*upgrade.scaleY[i] then
             upgrade:buy(i)
         end
     end
@@ -42,7 +42,7 @@ end
 
 
 function love.draw()
-    interface:draw()    
+    interface:draw()  
     caca:draw()
     upgrade:draw()
 end

@@ -1,4 +1,5 @@
 upgrade = {}
+-- IDEE PRESTIGE UPGRADE -- 
 
 function upgrade:load()
     upgrade.count = {}
@@ -8,9 +9,7 @@ function upgrade:load()
     upgrade.y = {}
     upgrade.scaleX = {}
     upgrade.scaleY = {}
-    upgrade.width = {}
-    upgrade.height = {}
-    upgrade.nb = 3
+    upgrade.nb = 4
     upgrade.textCount = {}
     upgrade.pricesText = {}
     upgrade:loadUpgrade()
@@ -25,8 +24,8 @@ function upgrade:loadUpgrade()
     upgrade.y[1] = 120
     upgrade.scaleX[1] = 0.7
     upgrade.scaleY[1] = 0.7
-    upgrade.width[1] = sprite.upgrade1:getWidth()*upgrade.scaleX[1]
-    upgrade.height[1] = sprite.upgrade1:getHeight()*upgrade.scaleY[1]
+    upgrade.width = sprite.upgradeDim:getWidth() * upgrade.scaleX[1]
+    upgrade.height = sprite.upgradeDim:getHeight() * upgrade.scaleY[1]
     upgrade.textCount[1] = tostring(upgrade.count[1])
     upgrade.pricesText[1] = tostring(upgrade.prices[1]) .. " caca requis"
 end
@@ -40,8 +39,6 @@ function upgrade:boucle()
     upgrade.y[i] = upgrade.y[i - 1] + 150
     upgrade.scaleX[i] = 0.7
     upgrade.scaleY[i] = 0.7
-    upgrade.width[i] = sprite.upgrade1:getWidth() * upgrade.scaleX[i]
-    upgrade.height[i] = sprite.upgrade1:getHeight() * upgrade.scaleY[i]
     end
 end
 
@@ -54,8 +51,8 @@ function upgrade:update(dt)
     
 
     for i = 1, upgrade.nb do
-        if mouseX >= upgrade.x[i] and mouseX <= upgrade.x[i] + upgrade.width[i] and
-        mouseY >= upgrade.y[i] and mouseY <= upgrade.y[i] + upgrade.height[i] then
+        if mouseX >= upgrade.x[i] and mouseX <= upgrade.x[i] + upgrade.width and
+        mouseY >= upgrade.y[i] and mouseY <= upgrade.y[i] + upgrade.height then
             requireMouse = true
             upgrade:mouseOver(i, dt)
         end
@@ -92,9 +89,9 @@ function upgrade:buy(i)
     end
 end
 function upgrade:draw()
-    for i = 1, upgrade.nb do
-        love.graphics.draw(sprite.upgrade1, upgrade.x[i], upgrade.y[i], nil, upgrade.scaleX[i], upgrade.scaleY[i])
-        love.graphics.print(upgrade.textCount[i], upgrade.x[i] - upgrade.width[i] * 2, upgrade.y[i] + upgrade.height[i] / 2, nil)
+    for i = 1, 3 do
+        love.graphics.draw(sprite.upgrade[i], upgrade.x[i], upgrade.y[i], nil, upgrade.scaleX[i], upgrade.scaleY[i])
+        love.graphics.print(upgrade.textCount[i], upgrade.x[i] - upgrade.width * 2, upgrade.y[i] + upgrade.height / 2, nil)
         love.graphics.print(upgrade.pricesText[i], upgrade.x[i] - 55, upgrade.y[i]+100, nil, 0.5, 0.5)
     end
 end
