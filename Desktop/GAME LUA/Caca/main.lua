@@ -26,12 +26,14 @@ function love.keypressed(key)
 end
 
 function love.mousepressed(x, y, button)
-    if x >= upgrade.x and x <= upgrade.x + upgrade.width*upgrade.scaleX and
-    y >= upgrade.y and y <= upgrade.y + upgrade.height*upgrade.scaleY then
-       upgrade:buy()
-   end
-   if x >= caca.x and x <= caca.x + caca.width and
-     y >= caca.y and y <= caca.y + caca.height then
+    for i = 1, upgrade.nb do
+        if x >= upgrade.x[i] and x <= upgrade.x[i] + upgrade.width[i]*upgrade.scaleX[i] and
+        y >= upgrade.y[i] and y <= upgrade.y[i] + upgrade.height[i]*upgrade.scaleY[i] then
+            upgrade:buy(i)
+        end
+    end
+    if x >= caca.x and x <= caca.x + caca.width and
+    y >= caca.y and y <= caca.y + caca.height then
         caca.isClick = true
         caca.count = caca.count + caca.click
         cacaClickDraw()

@@ -5,7 +5,7 @@ function caca:load()
     width, height = love.graphics.getDimensions()
     caca.x = width/4
     caca.y = height/4
-    caca.count = 0
+    caca.count = 300
     caca.click = 1
     caca.countPerSecond = 0
     caca.ScaleX = 10
