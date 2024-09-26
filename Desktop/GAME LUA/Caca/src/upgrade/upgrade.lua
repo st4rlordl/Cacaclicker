@@ -3,6 +3,7 @@ upgrade = {}
 
 function upgrade:load()
     upgrade.count = {}
+    upgrade.nbCount = {}
     upgrade.prices = {}
     upgrade.countMore = {}
     upgrade.x = {}
@@ -18,6 +19,7 @@ end
 
 function upgrade:loadUpgrade()
     upgrade.count[1] = 0
+    upgrade.nbCount[1] = 0
     upgrade.prices[1] = 100
     upgrade.countMore[1] = 1
     upgrade.x[1] = 840
@@ -26,17 +28,19 @@ function upgrade:loadUpgrade()
     upgrade.scaleY[1] = 0.7
     upgrade.width = sprite.upgradeDim:getWidth() * upgrade.scaleX[1]
     upgrade.height = sprite.upgradeDim:getHeight() * upgrade.scaleY[1]
-    upgrade.textCount[1] = tostring(upgrade.count[1])
+    upgrade.textCount[1] = tostring(upgrade.nbCount[1])
     upgrade.pricesText[1] = tostring(upgrade.prices[1]) .. " caca requis"
 end
 
 function upgrade:boucle()
     for i = 2, upgrade.nb do
     upgrade.count[i] = 0
+    upgrade.nbCount[i] = 0
     upgrade.prices[i] = math.floor(upgrade.prices[i - 1]*10)
-    upgrade.countMore[i] = upgrade.countMore[i - 1] + 10
+    upgrade.countMore[i] = upgrade.countMore[i - 1]*10
     upgrade.x[i] = 840
     upgrade.y[i] = upgrade.y[i - 1] + 150
+    upgrade.textCount[i] = tostring(upgrade.nbCount[i])
     upgrade.scaleX[i] = 0.7
     upgrade.scaleY[i] = 0.7
     end
@@ -68,10 +72,11 @@ function upgrade:update(dt)
     end
 
     for i = 1, upgrade.nb do
-        upgrade.textCount[i] = tostring(upgrade.count[i])
+        upgrade.textCount[i] = tostring(upgrade.nbCount[i])
         upgrade.pricesText[i] = tostring(upgrade.prices[i]) .. " caca requis"
     end
 end
+
 
 function upgrade:mouseOver(i, dt)
     if upgrade.scaleX[i] <= 1.2 then  
@@ -85,7 +90,8 @@ function upgrade:buy(i)
         upgrade.count[i] = upgrade.count[i] + upgrade.countMore[i]
         caca.count = caca.count - upgrade.prices[i]
         caca.countPerSecond = caca.countPerSecond + upgrade.countMore[i]
-        upgrade.prices[i] = math.floor(upgrade.prices[i] * 1.05)
+        upgrade.nbCount[i] = upgrade.nbCount[i] + 1  
+        upgrade.prices[i] = math.floor(upgrade.prices[i] * 1.2)
     end
 end
 function upgrade:draw()

@@ -3,6 +3,8 @@ sprite = {}
 function sprite:load()
     sprite.upgrade = {}
     sprite.caca = love.graphics.newImage("sprites/caca_sprite.png")
+    sprite.toilette = love.graphics.newImage("sprites/toilette_sprite.png")
+    sprite.factory = love.graphics.newImage("sprites/factory_sprite.png")
     sprite.Interfaces = love.graphics.newImage("sprites/Interface_texte.png")
     sprite.Upgrades = love.graphics.newImage("sprites/Interface_upgrade.png")
     sprite.Background = love.graphics.newImage("sprites/background.png")
