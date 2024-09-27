@@ -36,10 +36,10 @@ function upgrade:boucle()
     for i = 2, upgrade.nb do
     upgrade.count[i] = 0
     upgrade.nbCount[i] = 0
-    upgrade.prices[i] = math.floor(upgrade.prices[i - 1]*10)
-    upgrade.countMore[i] = upgrade.countMore[i - 1]*10
+    upgrade.prices[i] = math.floor(upgrade.prices[i - 1]*5)
+    upgrade.countMore[i] = upgrade.countMore[i - 1]*2
     upgrade.x[i] = 840
-    upgrade.y[i] = upgrade.y[i - 1] + 150
+    upgrade.y[i] = upgrade.y[i - 1] + 170
     upgrade.textCount[i] = tostring(upgrade.nbCount[i])
     upgrade.scaleX[i] = 0.7
     upgrade.scaleY[i] = 0.7

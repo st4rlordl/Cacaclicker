@@ -9,6 +9,7 @@ function sprite:load()
     sprite.Upgrades = love.graphics.newImage("sprites/Interface_upgrade.png")
     sprite.Background = love.graphics.newImage("sprites/background.png")
     sprite.upgradeDim = love.graphics.newImage("sprites/Upgrade_1.png")
+    sprite.menu = love.graphics.newImage("sprites/Interface_button.png")
     for i = 1, 3 do
         sprite.upgrade[i] = love.graphics.newImage("sprites/Upgrade_" .. tostring(i) .. ".png")
     end

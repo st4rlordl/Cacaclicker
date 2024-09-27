@@ -15,11 +15,12 @@ function factory:load()
     factory.isClick = false
 end
 
+function interface:drawBackground()
+    love.graphics.draw(sprite.Background, 0, 0, nil, 1, 1)
+end
 
 function interface:draw()
-    love.graphics.setFont(game_font)
-
-    love.graphics.draw(sprite.Background, 0, 0, nil, 1, 1)
+    interface:drawBackground()
     love.graphics.draw(sprite.Interfaces, width/6, 0, nil, 3.5, 3.5)
     love.graphics.draw(sprite.Upgrades, width-300, 0, nil, 1.5, 1.5)
     love.graphics.print(interface.textShop, width-245, 30)
@@ -27,6 +28,6 @@ function interface:draw()
 end
 
 function interface:toilette()
-    love.graphics.draw(sprite.Background, 0, 0, nil, 1, 1)
+    interface:drawBackground()
     love.graphics.draw(sprite.factory, factory.x, factory.y, nil, factory.ScaleX, factory.ScaleY)
 end

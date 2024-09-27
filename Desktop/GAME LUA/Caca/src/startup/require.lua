@@ -5,4 +5,5 @@ function requireAll()
     require("src/Interface/Interface")
     require("src/upgrade/upgrade")
     require("src/toilette/toilette")
+    require("src/Interface/menu")
 end

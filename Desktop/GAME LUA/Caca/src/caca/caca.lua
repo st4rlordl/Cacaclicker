@@ -2,7 +2,6 @@ caca = {}
 
 function caca:load()
     math.randomseed(os.time())
-    width, height = love.graphics.getDimensions()
     caca.x = width/5
     caca.y = height/3
     caca.ScaleX = 10
@@ -16,10 +15,11 @@ function caca:load()
     caca.ClickcountX = math.random(caca.x-10, caca.x+10)
     caca.ClickcountY = math.random(caca.y-10, caca.y+10)
     caca.textCount = {}
+    caca.textCountNB = 0
 end
 
 function caca:loadCount()
-     caca.count = 20000
+    caca.count = 20000
     caca.click = 1
     caca.countPerSecond = 0
 end
@@ -32,10 +32,10 @@ function caca:update(dt)
         caca.timer = caca.timer + dt
     end
     cacaClick(dt)
-    caca.textCount = "+" .. tostring(caca.click)
     caca.count = caca.count + (caca.countPerSecond*dt)
-end
+    caca.textCount = "+" .. tostring(caca.click)
 
+end
 
 function cacaClick(dt)
     if caca.isClick then
@@ -57,9 +57,11 @@ function cacaClick(dt)
 end
 
 function cacaClickDraw()
+    for i = caca.textCountNB, caca.textCountNB+1 do
+
+    end
     if caca.isClick then
-            love.graphics.print(caca.textCount, caca.ClickcountX, caca.ClickcountY, nil)
-        
+            love.graphics.print(caca.textCount, caca.ClickcountX, caca.ClickcountY, nil)   
             caca.ClickcountX = caca.ClickcountX - 0.1
             caca.ClickcountY = caca.ClickcountY - 0.1
         
