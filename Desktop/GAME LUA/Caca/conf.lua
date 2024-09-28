@@ -4,8 +4,8 @@ function love.conf(t)
     t.versions = "0.0.1"
     t.window.icon = "icon/game_icon.png"
         
-    t.window.width = 960
-    t.window.height = 960
+    t.window.width = 800
+    t.window.height = 800
     t.window.resizable = false
     t.console = true
 end

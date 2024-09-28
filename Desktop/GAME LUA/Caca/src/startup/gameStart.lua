@@ -29,5 +29,11 @@ end
 function gameStart:drawMenu()
     game_font = love.graphics.newFont("font/DePixelKlein.ttf", 30)
     love.graphics.setFont(game_font)
+    love.graphics.setShader(blur1)
+    gameStart:drawFactory()
+    --aplique du blur
+    love.graphics.setShader()
+    interface:cacaBackground()
     menu:draw()
+  
 end
