@@ -63,9 +63,14 @@ function interface:draw()
     
 end
 
-function interface:toilette()
+-- DRAW INTERFACE TOILET
+function interface:toilette() 
     interface:drawBackground()
+    toilette:Jeudraw()
+    love.graphics.draw(sprite.panneauUpgrade, 0, 550, nil, 1.5, 1.5)
+    love.graphics.print("BALANCE LE CACA DANS \nLA CUVETTE", 10, 560, nil)
     love.graphics.draw(sprite.factory, factory.x, factory.y, nil, factory.ScaleX, factory.ScaleY)
+    love.graphics.draw(sprite.cacaMiniJeu, width / 2, height - 100, nil, 2, 2)
 end
 
 function interface:cacaBackground()
