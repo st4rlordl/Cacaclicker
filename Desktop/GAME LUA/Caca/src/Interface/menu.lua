@@ -1,8 +1,9 @@
 menu = {}
-function menu:load()
-    menu.scaleX = {}
-    menu.scaleY = {}
-    menu.textButton = {}
+menu.scaleX = {}
+menu.scaleY = {}
+menu.textButton = {}
+
+function menu:load()    
     menu.textButton[1] = "LANCER"
     menu.textButton[2] = "OPTIONS"
     menu.textButton[3] = "QUITTER"

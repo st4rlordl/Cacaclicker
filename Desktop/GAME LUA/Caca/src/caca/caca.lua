@@ -2,7 +2,7 @@ caca = {}
 cacaCountText = {}
 
 function caca:load()
-    math.randomseed(os.time())
+
     caca.x = width/5
     caca.y = height/3
     caca.ScaleX = width/100

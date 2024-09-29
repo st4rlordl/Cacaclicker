@@ -1,5 +1,6 @@
 gameStart = {}
 function gameStart:load()
+    math.randomseed(os.time())
     love.graphics.setDefaultFilter("nearest", "nearest") --better pixel scale
     width, height = love.graphics.getDimensions()
     require("src/startup/require")
